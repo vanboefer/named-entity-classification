@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <title>feat1_0</title>
+    </head>
+    <body>
+        <div class="toc">
+            <a href="#lr_feat1_0"><div class="button">Logistic Regression</div></a>
+<a href="#lsvc_feat1_0"><div class="button">Linear SVM</div></a>
+
+        </div>
+        <div class="main">
+            <h1>Results for feat1_0</h1>
+            <hr>
+            <h2 id="lr_feat1_0">Logistic Regression, feat1, without optimization ( C=1.000 )</h2>
+<h3>Classification report</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f1-score</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>LOC</th>
+      <td>0.85</td>
+      <td>0.86</td>
+      <td>0.83</td>
+      <td>2094</td>
+    </tr>
+    <tr>
+      <th>MISC</th>
+      <td>0.73</td>
+      <td>0.86</td>
+      <td>0.63</td>
+      <td>1268</td>
+    </tr>
+    <tr>
+      <th>O</th>
+      <td>0.98</td>
+      <td>0.97</td>
+      <td>0.99</td>
+      <td>42123</td>
+    </tr>
+    <tr>
+      <th>ORG</th>
+      <td>0.64</td>
+      <td>0.76</td>
+      <td>0.56</td>
+      <td>2092</td>
+    </tr>
+    <tr>
+      <th>PER</th>
+      <td>0.91</td>
+      <td>0.89</td>
+      <td>0.92</td>
+      <td>3145</td>
+    </tr>
+    <tr>
+      <th>micro avg</th>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>50722</td>
+    </tr>
+    <tr>
+      <th>macro avg</th>
+      <td>0.82</td>
+      <td>0.87</td>
+      <td>0.79</td>
+      <td>50722</td>
+    </tr>
+    <tr>
+      <th>weighted avg</th>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>50722</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Confusion matrix</h3>
+<div class="matrices">
+    <img class="matrix" src="png/lr_feat1_0 not normalized.png" alt="">
+    <img class="matrix" src="png/lr_feat1_0 normalized.png" alt="">
+</div>
+<h2 id="lsvc_feat1_0">Linear SVM, feat1, without optimization ( C=1.000 )</h2>
+<h3>Classification report</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f1-score</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>LOC</th>
+      <td>0.84</td>
+      <td>0.85</td>
+      <td>0.82</td>
+      <td>2094</td>
+    </tr>
+    <tr>
+      <th>MISC</th>
+      <td>0.72</td>
+      <td>0.87</td>
+      <td>0.62</td>
+      <td>1268</td>
+    </tr>
+    <tr>
+      <th>O</th>
+      <td>0.98</td>
+      <td>0.97</td>
+      <td>0.99</td>
+      <td>42123</td>
+    </tr>
+    <tr>
+      <th>ORG</th>
+      <td>0.63</td>
+      <td>0.78</td>
+      <td>0.53</td>
+      <td>2092</td>
+    </tr>
+    <tr>
+      <th>PER</th>
+      <td>0.91</td>
+      <td>0.88</td>
+      <td>0.93</td>
+      <td>3145</td>
+    </tr>
+    <tr>
+      <th>micro avg</th>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>50722</td>
+    </tr>
+    <tr>
+      <th>macro avg</th>
+      <td>0.82</td>
+      <td>0.87</td>
+      <td>0.78</td>
+      <td>50722</td>
+    </tr>
+    <tr>
+      <th>weighted avg</th>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>0.95</td>
+      <td>50722</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Confusion matrix</h3>
+<div class="matrices">
+    <img class="matrix" src="png/lsvc_feat1_0 not normalized.png" alt="">
+    <img class="matrix" src="png/lsvc_feat1_0 normalized.png" alt="">
+</div>
+
+        </div>
+    </body>
+</html>

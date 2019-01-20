@@ -1,7 +1,11 @@
 # Project specific:
-data/
+*.conll
+*.en
+*.pkl
+*.npz
+*.ini
+*.vec
 *.tsv
-*.json
 
 # Python.gitignore (from https://github.com/github/gitignore/blob/master/Python.gitignore)
 
