@@ -6,6 +6,7 @@ The helper functions for this script are found in the utils package:
 """
 
 import pandas as pd
+import shutil
 from utils import evaluation
 from config import ProjectPaths
 
@@ -19,6 +20,7 @@ predictions_df = pd.read_csv(path_results / 'predictions.tsv', sep='\t')
 
 # load template
 template = (path_templates / 'classification_report.html').read_text()
+index_html = (path_templates / 'index.html').read_text()
 
 # define y_test (gold labels)
 y_test = predictions_df['y_test_GOLD']
@@ -35,6 +37,7 @@ pages_lst = [
 ]
 # generate a page for each type of run
 # (with the results of all classifiers for this type of run)
+index_list = ''
 for page in pages_lst:
     toc = ''
     block = ''
@@ -48,4 +51,12 @@ for page in pages_lst:
     temp_out = temp_out.replace('[TOC]', toc)
     temp_out = temp_out.replace('[REPORT_BLOCK]', block)
 
-    (path_results / ('class_report_' + page + '.html')).write_text(temp_out)
+    html_name = 'class_report_' + page + '.html'
+    index_list += f'<li><a href={html_name}>{page}</a></li>\n'
+    (path_results / html_name).write_text(temp_out)
+
+(path_results / 'index.html').write_text(index_html.replace('[INDEX]', index_list))
+
+css_templ = path_templates / 'style.css'
+css_resul = path_results / 'style.css'
+shutil.copy(css_templ, css_resul)
