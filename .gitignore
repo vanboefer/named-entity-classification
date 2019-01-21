@@ -1,10 +1,8 @@
 # Project specific:
-*.conll
-*.en
-*.pkl
-*.npz
 *.ini
-*.vec
+data_raw/
+data_processed/
+word_embeddings_EN/
 results/
 
 # Python.gitignore (from https://github.com/github/gitignore/blob/master/Python.gitignore)
