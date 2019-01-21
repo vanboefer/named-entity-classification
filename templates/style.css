@@ -28,7 +28,8 @@ th {
     padding: 0.5em;
 }
 thead th {
-    text-align: center;
+    text-align: right;
+    padding-right: 3.5em;
     border: none;
     border-bottom: 1px solid gray;
     background-color: Lavender;
