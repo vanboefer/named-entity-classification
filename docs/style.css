@@ -1,0 +1,87 @@
+html {
+    font-family: 'Lato', sans-serif;
+}
+body {
+    margin: 0px;
+}
+.report {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+h1 {
+    text-transform: uppercase;
+    font-stretch: expanded;
+}
+h2 {
+    background-color: Lavender;
+    padding: 1em;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 1em;
+}
+th {
+    text-align: left;
+    border: none;
+    padding: 0.5em;
+}
+thead th {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: Lavender;
+}
+td {
+    width:20%;
+    text-align: right;
+    padding: 0.5em;
+    padding-right: 3.5em;
+    border: none;
+}
+tr:hover {
+    background-color: lightyellow;
+}
+img {
+    height: 50%;
+    width: 50%;
+    margin: -10px;
+}
+.toc {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    background-color: Lavender;
+    width: 20%;
+    height: 100vh;
+}
+.button {
+    padding: 1.0em;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin: 1.0em;
+}
+.main {
+    margin-left: 20%;
+}
+.main * {
+    padding-left: 1em;
+}
+.button:hover {
+    background-color: lightblue;
+}
+a {
+    font-weight: 600;
+    text-decoration: none;
+}
+.matrices {
+    display: flex;
+    width: 100%;
+    margin-left: -5vw;
+    flex-direction: row;
+}
