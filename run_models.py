@@ -1,3 +1,12 @@
+"""
+This script runs the ML models, according to the settings specified in the ML_configurations.xlsx file. Each row in the table defines a run in terms of:
+    - the model used (e.g. Logistic Regression)
+    - the features used (e.g. feat2), incl. the relevant filenames
+    - optimization (with / without)
+
+The helper functions for this script are found in the models package.
+"""
+
 import timeit
 import pickle
 import pandas as pd
@@ -9,6 +18,7 @@ import models.HMM
 import models.LogisticRegression
 import models.NaiveBayes
 import models.SVM
+
 
 path_proc = ProjectPaths()['data_processed']
 path_results = ProjectPaths()['results']

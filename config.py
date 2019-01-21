@@ -1,5 +1,12 @@
+"""
+This script serves two purposes:
+- When ran directly, it creates the config.ini file, which stores all the project paths. This needs to be done at the beginning of the project.
+- When imported, it gives you access to the ProjectPaths class. This class makes all the paths defined in config.ini accessible.
+"""
+
 import configparser
 from pathlib import Path
+
 
 class ProjectPaths:
     config = configparser.ConfigParser()

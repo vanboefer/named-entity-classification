@@ -1,12 +1,30 @@
+"""
+This script generates an html page with the results for each type of run.
+
+The helper functions for this script are found in the utils package:
+- evaluation
+"""
+
 import pandas as pd
 from utils import evaluation
 from config import ProjectPaths
+
+
+# set paths
 path_templates = ProjectPaths()['templates']
 path_results = ProjectPaths()['results']
 
 # load predictions from file
 predictions_df = pd.read_csv(path_results / 'predictions.tsv', sep='\t')
 
+# load template
+template = (path_templates / 'classification_report.html').read_text()
+
+# define y_test (gold labels)
+y_test = predictions_df['y_test_GOLD']
+
+# html pages (each item in the list is a type of run (features + optimization)
+# the results of all classifiers for this type of run will appear on one page
 pages_lst = [
     'feat0_0',
     'feat0_1',
@@ -15,11 +33,8 @@ pages_lst = [
     'feat2_1',
     'feat3_0',
 ]
-
-template = (path_templates / 'classification_report.html').read_text()
-
-y_test = predictions_df['y_test_GOLD']
-
+# generate a page for each type of run
+# (with the results of all classifiers for this type of run)
 for page in pages_lst:
     toc = ''
     block = ''

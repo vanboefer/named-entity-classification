@@ -1,3 +1,9 @@
+"""
+This module contains helper functions for generating the results html.
+
+The module is used in the create_results_html.py script.
+"""
+
 import pickle
 import itertools
 import numpy as np
@@ -8,26 +14,35 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
 from config import ProjectPaths
+
+
+# set paths
 path_results = ProjectPaths()['results']
 path_templates = ProjectPaths()['templates']
 
 
 def results2html(y_test, y_pred):
     """
-    tbd
+    From given gold labels (y_test) and predicted labels (y_pred):
+    1. Generate a classification report (precision, recall, F1-score per label and average)
+    2. Generate two confusion matrix plots (normalized, not normalized)
+    3. Generate an html block with the above results (according to the 'report_block.html' template).
+
+    :param y_test: pandas Series
+    :param y_pred: pandas Series
+    :return: str
     """
 
-    # generate the description of the report
+    # generate the description of the report block
     description = name2title(y_pred.name) + f'{get_param_val(y_pred.name)}'
 
-    # generate the report
+    # generate the classification report
     clasrep_dict = classification_report(y_test, y_pred, output_dict=True)
     df_rep = pd.DataFrame(clasrep_dict).T
     df_rep['support'] = df_rep['support'].astype(int)
     clasrep = df_rep.round(2).to_html()
 
     # generate confusion matrix plots
-    path_results = ProjectPaths()['results']
     plt_norm = cm_plot(y_test, y_pred, normalize=True)
     plt_no_norm = cm_plot(y_test, y_pred, normalize=False)
 
@@ -48,7 +63,13 @@ def results2html(y_test, y_pred):
 
 def name2title(run_name):
     """
-    tbd
+    Convert the string of the unique run name (as it appears in the columns of the predictions.tsv file) to an informative string describing the run in terms of:
+        - the model used (e.g. Logistic Regression)
+        - the features used (e.g. feat2)
+        - optimization (with / without)
+
+    :param run_name: str
+    :return: str
     """
 
     model_code, feat, optimized = run_name.split('_')
@@ -72,7 +93,10 @@ def name2title(run_name):
 
 def get_param_val(run_name):
     """
-    tbd
+    Based on the unique run name (as it appears in the columns of the predictions.tsv file), extract the values of the parameters for this run from the best_params.pkl file.
+
+    :param run_name: str
+    :return: str
     """
 
     with open(path_results / 'best_params.pkl', 'rb') as infile:
@@ -92,8 +116,13 @@ def get_param_val(run_name):
 
 def cm_plot(y_test, y_pred, normalize=False):
     """
-    Based on: https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html#sphx-glr-auto-examples-model-selection-plot-confusion-matrix-py
+    [Based on: https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html#sphx-glr-auto-examples-model-selection-plot-confusion-matrix-py]
 
+    From given gold labels (y_test) and predicted labels (y_pred), generate a png file with a confusion matrix plot.
+
+    :param y_test: pandas Series
+    :param y_pred: pandas Series
+    :return: the name of the png file (str)
     """
 
     plt.figure()

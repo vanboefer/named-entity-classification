@@ -1,3 +1,11 @@
+"""
+This module contains helper functions for creating the data_embeddings.pkl file. This file contains a dictionary where each lemma in the train and test data is mapped to a corresponding pre-trained fastText word embedding (https://fasttext.cc/docs/en/english-vectors.html).
+
+Lemmas that do not have an embedding in this pre-trained database, will have embeddings of all-zeros in the dictionary.
+
+The module is used in the create_X_y.py script.
+"""
+
 import io
 import pickle
 import pandas as pd

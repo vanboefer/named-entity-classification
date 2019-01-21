@@ -1,3 +1,18 @@
+"""
+This module contains helper functions for creating features from raw data in the CoNLL format.
+
+The extracted features are -
+- lemma of the current word (w)
+- lemma of w-1 (BOS if w=beginning of sentence)
+- lemma of w+1 (EOS if w=end of sentence)
+- POS of w
+- POS of w-1 (BOS if w=beginning of sentence)
+- POS of w+1 (EOS if w=end of sentence)
+- word shape: lowcase / upcase_BOS / upcase_IN / all_caps / other
+
+The module is used in the create_X_y.py script.
+"""
+
 import pandas as pd
 import nltk
 from nltk.stem import WordNetLemmatizer

@@ -1,3 +1,11 @@
+"""
+This script processes raw data and generates features. The features are stored in pkl (pickle) and npz (numpy zipped archive) format in the data_processed directory.
+
+The helper functions for this script are found in the utils package:
+- extract_features
+- embeddings_dict
+"""
+
 import timeit
 import pickle
 import scipy.sparse
@@ -8,6 +16,7 @@ import utils.embeddings_dict as ed
 
 from config import ProjectPaths
 from sklearn.feature_extraction import DictVectorizer
+
 
 start = timeit.default_timer()
 
